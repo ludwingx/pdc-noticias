@@ -58,8 +58,8 @@ export function usePDFGenerator(noticias) {
 
       // Cargar imágenes de cabecera desde URLs
       const [logoIzquierda, logoCentro] = await Promise.all([
-        getBase64ImageFromUrl("https://i.ibb.co/h1g43r2n/image-5-1.png"),
-        getBase64ImageFromUrl("https://i.ibb.co/M5fYmwbJ/image-5-2.png"),
+        getBase64ImageFromUrl("https://i.ibb.co/3nKygC9/rodrigopaz-Logo.png"),
+        getBase64ImageFromUrl("https://i.ibb.co/WvYxbp0M/pdcLogo.png"),
       ]);
 
       // Altura máxima para la cabecera
@@ -95,8 +95,8 @@ export function usePDFGenerator(noticias) {
       // Título centrado en la cabecera
       doc.setFont("helvetica", "bold");
       doc.setFontSize(24);
-      doc.setTextColor("#12358d");
-      doc.text("Samuel Noticias", pageWidth / 2, logoY + 28, { align: "center" });
+      doc.setTextColor("#006168");
+      doc.text("PDC Noticias", pageWidth / 2, logoY + 28, { align: "center" });
 
       // Fecha y hora centradas debajo del título
       const fechaHora = new Date().toLocaleString("es-ES", {
@@ -368,7 +368,7 @@ export function usePDFGenerator(noticias) {
     // Leer más SIEMPRE al fondo de la caja (con margen inferior)
     doc.setFont("helvetica", "normal");
     doc.setFontSize(12);
-    doc.setTextColor("#f59e42");
+    doc.setTextColor("#e10914");
     let urlSegura = "#";
     try {
       if (noticia.url && typeof noticia.url === 'string' && noticia.url.trim()) {
