@@ -148,7 +148,7 @@ export function useNews() {
   
     try {
       const res = await fetch(
-        "https://political-news-n8n.af9gwe.easypanel.host/webhook-test/pdc-news",
+        "https://political-news-n8n.af9gwe.easypanel.host/webhook/pdc-news",
         { method: "POST" }
       );
       if (!res.ok) throw new Error("Error al ejecutar el webhook");
