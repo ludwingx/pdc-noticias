@@ -1,0 +1,53 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  username  String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  role      Rol      @default(LECTOR)
+}
+
+model News {
+  id                Int       @id @default(autoincrement())
+  titulo            String
+  autor             String?
+  fecha_publicacion DateTime?
+  imagen            String?
+  resumen           String?
+  contenido         String?
+  fuente            String?
+  url               String?
+  resumen_ia        String?
+  estado            String    @default("PENDIENTE")
+  categoria         String?
+  created_at        DateTime  @default(now())
+}
+
+model ArticuloBruto {
+  id     Int            @id @default(autoincrement())
+  url    String         @unique
+  estado EstadoArticulo @default(SIN_TRABAJAR)
+  creado DateTime       @default(now())
+}
+
+enum Rol {
+  ADMINISTRADOR
+  LECTOR
+}
+
+enum EstadoArticulo {
+  SIN_TRABAJAR
+  EN_PROCESO
+  PROCESADO
+  DESCARTADO
+}
