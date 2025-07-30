@@ -29,7 +29,7 @@ function HomePage() {
 
       {/* Footer con menos padding para evitar scroll */}
       <footer className="py-3 text-center text-xs sm:text-sm text-gray-500 w-full">
-        &copy; {new Date().getFullYear()} Intelexia Labs
+        &copy; {new Date().getFullYear()} Other Mind
       </footer>
     </div>
   );
